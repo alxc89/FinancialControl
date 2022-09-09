@@ -1,2 +1,4 @@
-package com.api.FinancialControl.services;public class FinancialControlService {
+package com.api.FinancialControl.services;
+
+public class FinancialControlService {
 }

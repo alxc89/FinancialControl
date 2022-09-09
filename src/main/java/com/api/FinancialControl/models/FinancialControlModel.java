@@ -1,2 +1,4 @@
-package com.api.FinancialControl.models;public class FinancialControlModel {
+package com.api.FinancialControl.models;
+
+public class FinancialControlModel {
 }
