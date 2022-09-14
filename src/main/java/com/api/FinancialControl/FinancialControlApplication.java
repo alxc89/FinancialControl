@@ -12,7 +12,6 @@ public class FinancialControlApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(FinancialControlApplication.class, args);
 	}
-
 	@GetMapping("/")
 	public String index(){
 		return "Olá Mundo!";
