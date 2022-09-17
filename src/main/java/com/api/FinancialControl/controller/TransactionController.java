@@ -34,11 +34,6 @@ public class TransactionController {
 
     @PostMapping
     public ResponseEntity<Object> saveTransaction(@RequestBody TransactionDTO transactionDTO) {
-
-        if(validateBalance(transactionDTO) == false){
-            return ResponseEntity.status(HttpStatus.CONFLICT).body("Saldo ficará negativo!");
-        }
-
        try {
             var transactionModel = new TransactionModel();
             BeanUtils.copyProperties(transactionDTO, transactionModel);
@@ -94,25 +89,5 @@ public class TransactionController {
 
         transactionService.delete(transactionModelOptional.get());
         return ResponseEntity.status(HttpStatus.OK).body("Lançamento deletado!");
-    };
-
-    public boolean validateBalance(TransactionDTO transactionDTO){
-        var transactions = getAllTransaction().getBody();
-
-        for(int i = 0; i <= transactions.size() - 1; i++){
-
-            if(transactions.get(i).getMovementType().equals("Entrada")){
-                transactionDTO.setTotalCashEntry(transactions.get(i).getAmount());
-            }
-            if(transactions.get(i).getMovementType().equals("Saída")){
-                transactionDTO.setTotalCashOutflow(transactions.get(i).getAmount());
-            }
-        }
-
-        if(transactionDTO.getTotalCashEntry() < transactionDTO.getTotalCashOutflow()){
-            return false;
-        }
-
-        return true;
     };
 }
