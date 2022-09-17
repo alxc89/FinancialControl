@@ -1,4 +1,4 @@
-<h1 style="text-align: center; font-weight: bold;">Controle Financeiro</h1>
+<h1 style="text-align: center; font-weight: bold;">API Controle Financeiro</h1>
 
 ## Sobre o Projeto
 
